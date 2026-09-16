@@ -1,0 +1,103 @@
+schema_version = 1
+
+[target]
+soc = "sm8550"
+devices = ["example-handheld", "example-handheld-pro"]
+
+[[compatibility]]
+runtime = "proton"
+proton-architecture = "arm64"
+proton-version = "experimental"
+proton-variant = "steam"
+default = true
+status = "verified"
+confidence = "maintainer"
+notes = "Demonstrates a verified ARM64 Proton result, safe default, and named core preset."
+
+[[compatibility]]
+runtime = "proton"
+proton-architecture = "x86_64"
+proton-version = "9"
+proton-variant = "ge"
+status = "playable"
+confidence = "community"
+notes = "Demonstrates a separately tested conventional x86_64 Proton build."
+
+[[compatibility]]
+runtime = "slr"
+status = "playable"
+confidence = "community"
+notes = "Demonstrates a separate Steam Linux Runtime result."
+
+[[compatibility]]
+runtime = "native"
+status = "boots"
+confidence = "experimental"
+notes = "Demonstrates a native build that starts but has significant blockers."
+
+[[compatibility]]
+runtime = "wine"
+status = "broken"
+confidence = "experimental"
+notes = "Demonstrates recording a failed Wine test."
+
+[settings.cpu]
+preset = "big"
+wine_topology = true
+nice = 0
+scheduler = "eevdf"
+
+[settings.fex.overrides]
+Multiblock = "0"
+MaxInstPerBlock = "100000"
+
+[settings.environment]
+EXAMPLE_OPTION = "sm8550"
+
+[[reports]]
+runtime = "proton"
+proton-architecture = "arm64"
+proton-version = "experimental"
+proton-variant = "steam"
+tested_at = 2026-09-16
+distro = "Example Linux"
+distro_version = "1.0"
+device = "Example Handheld"
+tester = "example-contributor"
+kernel = "6.12.0-example"
+runtime_name = "Example Proton"
+runtime_version = "experimental-2026-09-15"
+notes = "Completed the fictional test sequence without issues. Example evidence only."
+
+[[reports]]
+runtime = "proton"
+proton-architecture = "x86_64"
+proton-version = "9"
+proton-variant = "ge"
+tested_at = 2026-09-15
+distro = "Example Linux"
+device = "Example Handheld"
+runtime_name = "Example GE-Proton"
+runtime_version = "GE-Proton9-27"
+notes = "Completed the fictional test sequence through host translation with minor caveats."
+
+[[reports]]
+runtime = "slr"
+tested_at = 2026-09-16
+distro = "Example Linux"
+device = "Example Handheld"
+notes = "Reached gameplay through the fictional native executable, with minor caveats."
+
+[[reports]]
+runtime = "native"
+tested_at = 2026-09-16
+distro = "Example Linux"
+device = "Example Handheld"
+notes = "Reached the fictional main menu, but input did not work."
+
+[[reports]]
+runtime = "wine"
+tested_at = 2026-09-16
+distro = "Example Linux"
+device = "Example Handheld"
+notes = "The fictional standalone Wine launch exited before the main menu."

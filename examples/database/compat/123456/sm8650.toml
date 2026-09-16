@@ -1,0 +1,84 @@
+schema_version = 1
+
+[target]
+soc = "sm8650"
+
+[[compatibility]]
+runtime = "proton"
+proton-architecture = "x86_64"
+proton-version = "9"
+proton-variant = "ge"
+default = true
+status = "playable"
+confidence = "community"
+notes = "GE-Proton 9 is preferred and demonstrates explicit core ordering and executable shorthand."
+
+[[compatibility]]
+runtime = "proton"
+proton-architecture = "x86_64"
+proton-version = "9"
+proton-variant = "steam"
+status = "playable"
+confidence = "community"
+notes = "An explicitly tested Steam Proton fallback when the preferred variant is unavailable."
+
+[[compatibility]]
+runtime = "proton"
+proton-architecture = "x86_64"
+proton-version = "11"
+proton-variant = "steam"
+status = "boots"
+confidence = "experimental"
+notes = "Demonstrates a regression on a newer Proton release track."
+
+[settings.launch]
+# A scalar is shorthand for a Proton/Windows executable suffix.
+exe-append = "/../ExampleGame.exe"
+
+[settings.cpu]
+cores = [7, 2, 3, 4, 5, 6]
+wine_topology = false
+nice = -5
+scheduler = "lavd"
+
+[settings.fex]
+preset = "fast"
+
+[[reports]]
+runtime = "proton"
+proton-architecture = "x86_64"
+proton-version = "9"
+proton-variant = "ge"
+tested_at = 2026-09-16
+distro = "Another Example Linux"
+distro_version = "2.0"
+device = "Another Example Handheld"
+tester = "second-example-contributor"
+kernel = "6.13.0-example"
+runtime_name = "Example GE-Proton"
+runtime_version = "GE-Proton9-27"
+notes = "Completed the fictional test sequence with the explicitly ordered CPU list."
+
+[[reports]]
+runtime = "proton"
+proton-architecture = "x86_64"
+proton-version = "9"
+proton-variant = "steam"
+tested_at = 2026-09-16
+distro = "Another Example Linux"
+device = "Another Example Handheld"
+runtime_name = "Example Steam Proton"
+runtime_version = "9.0-4"
+notes = "The explicitly tested fallback completed the fictional test sequence."
+
+[[reports]]
+runtime = "proton"
+proton-architecture = "x86_64"
+proton-version = "11"
+proton-variant = "steam"
+tested_at = 2026-09-16
+distro = "Another Example Linux"
+device = "Another Example Handheld"
+runtime_name = "Example Proton"
+runtime_version = "11.0-2"
+notes = "The fictional newer release reached the menu but regressed during gameplay."

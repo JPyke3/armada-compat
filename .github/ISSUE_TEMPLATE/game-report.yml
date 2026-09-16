@@ -1,0 +1,142 @@
+name: Game compatibility report
+description: Report a working game, a broken game, or settings that improve it
+title: "[Game report]: "
+labels:
+  - game-report
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing a game on ARM Linux. Fill in what you know—no TOML or logs are required.
+
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: Counter-Strike 2
+    validations:
+      required: true
+
+  - type: input
+    id: appid
+    attributes:
+      label: App ID
+      description: Find the game on https://steamdb.info and copy its “App ID” field.
+      placeholder: "730"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device and SoC
+      placeholder: AYN Odin 2 — SM8550
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Active compatibility type
+      description: Check the compatibility tool Steam used for this test.
+      options:
+        - Proton
+        - Steam Linux Runtime (SLR)
+        - Native Linux (no compatibility tool)
+        - Wine outside Steam
+        - Unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: proton_architecture
+    attributes:
+      label: Proton architecture
+      description: For Proton tests, identify the tool build—not the game's executable architecture.
+      options:
+        - ARM64 / ARM64EC Proton
+        - Conventional x86_64 Proton
+        - Not using Proton
+        - Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: proton_version
+    attributes:
+      label: Proton release track
+      description: Enter what Steam shows, such as 9, 11, experimental, or hotfix. Leave blank for non-Proton tests.
+      placeholder: "9"
+
+  - type: input
+    id: proton_variant
+    attributes:
+      label: Proton variant
+      description: Enter the selected build family, such as Steam, GE, or CachyOS. Leave blank for non-Proton tests.
+      placeholder: GE
+
+  - type: input
+    id: runtime_version
+    attributes:
+      label: Runtime name and version
+      description: Record the exact compatibility-tool name and version shown by Steam, if known.
+      placeholder: Proton Experimental ARM64EC
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Result
+      options:
+        - Verified — works well
+        - Playable — usable with caveats
+        - Boots — starts but has significant blockers
+        - Broken — does not reach usable gameplay
+    validations:
+      required: true
+
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened?
+      description: Say what works, what is broken, and how far you played.
+      placeholder: Reached gameplay; videos are blank; tested for 45 minutes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: settings
+    attributes:
+      label: Required or helpful settings
+      description: Include launch arguments, executable changes, FEX preset/overrides, core pinning, scheduler/nice settings, thunk toggles, and environment variables. Write “none” if defaults worked.
+      placeholder: |
+        FEX preset: fast
+        Core preset: big
+        Launch arguments: -vulkan
+    validations:
+      required: true
+
+  - type: input
+    id: distro
+    attributes:
+      label: Distro and version
+      placeholder: Armada 2026.09.16
+    validations:
+      required: true
+
+  - type: input
+    id: tested_at
+    attributes:
+      label: Date tested
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I tested this result on the device and runtime listed above.
+          required: true
+        - label: This report contains no passwords, tokens, or private account information.
+          required: true

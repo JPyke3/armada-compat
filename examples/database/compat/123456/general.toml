@@ -1,0 +1,21 @@
+schema_version = 1
+
+[settings.launch]
+arguments = ["-vulkan", "-novid"]
+# Select the suffix matching the route Steam is already using.
+exe-append = { proton = "/../ExampleGame.exe", slr = "/../example-game" }
+
+[settings.fex]
+preset = "standard"
+
+[settings.fex.thunks]
+Vulkan = true
+GL = true
+EGL = false
+drm = true
+WaylandClient = true
+asound = true
+
+[settings.environment]
+EXAMPLE_OPTION = "enabled"
+DISABLE_EXAMPLE_OVERLAY = false

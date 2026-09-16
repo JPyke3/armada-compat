@@ -1,0 +1,10 @@
+# Example only. This is not a real compatibility claim and is never published.
+schema_version = 1
+
+[game]
+id = 123456
+name = "Example Game"
+store = "steam"
+slug = "example-game"
+homepage = "https://example.invalid/example-game"
+aliases = ["Example Game: Demonstration Edition"]

@@ -1,0 +1,21 @@
+schema_version = 1
+
+[soc]
+id = "sm8550"
+logical_cpus = 8
+
+[presets.all]
+description = "All logical CPUs"
+cores = [0, 1, 2, 3, 4, 5, 6, 7]
+
+[presets.little]
+description = "Efficiency cores"
+cores = [0, 1, 2]
+
+[presets.big]
+description = "Performance and prime cores"
+cores = [3, 4, 5, 6, 7]
+
+[presets.prime]
+description = "Prime core"
+cores = [7]

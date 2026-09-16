@@ -1,0 +1,44 @@
+name: Incorrect or outdated profile
+description: Report a published profile that no longer works or contains incorrect data
+title: "[Profile correction]: "
+labels:
+  - profile-correction
+body:
+  - type: input
+    id: appid
+    attributes:
+      label: App ID
+      description: Find the game on https://steamdb.info and copy its “App ID” field.
+      placeholder: "730"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device and SoC
+      placeholder: AYN Odin 2 — SM8550
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is incorrect or outdated?
+      description: Include ARM64 versus x86_64 Proton, the active tool version, and what happens now.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+      description: Tell us what setting or status should change, if known.
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I reproduced this on the device described above.
+          required: true
