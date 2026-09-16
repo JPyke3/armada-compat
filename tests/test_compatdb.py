@@ -59,6 +59,22 @@ class CompatDatabaseTests(unittest.TestCase):
         self.assertEqual(set(database["core_presets"]), {"sm8250", "sm8550", "sm8650", "sm8750"})
         self.assertEqual(set(database["fex_presets"]), {"standard", "fast", "compat"})
 
+    def test_borderlands_2_profile_matches_observed_thor_settings(self):
+        database = compatdb.load_database(ROOT)
+        game = database["games"]["49520"]
+        target = game["targets"]["sm8550"]
+
+        self.assertEqual(game["game"]["name"], "Borderlands 2")
+        self.assertEqual(target["settings"]["cpu"]["preset"], "big")
+        self.assertEqual(target["settings"]["fex"]["preset"], "standard")
+        self.assertEqual(target["compatibility"][0]["runtime"], "proton")
+        self.assertEqual(target["compatibility"][0]["proton-version"], "experimental")
+        self.assertEqual(target["compatibility"][0]["proton-variant"], "steam")
+        self.assertEqual(
+            target["reports"][0]["runtime_name"],
+            "proton-experimental-arm64",
+        )
+
     def test_example_merges_general_and_soc_settings(self):
         database = compatdb.load_database(ROOT, ROOT / "examples" / "database" / "compat")
         target = database["games"]["123456"]["targets"]["sm8550"]

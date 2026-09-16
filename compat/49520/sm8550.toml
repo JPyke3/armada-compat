@@ -1,0 +1,31 @@
+schema_version = 1
+
+[target]
+soc = "sm8550"
+
+[[compatibility]]
+runtime = "proton"
+proton-architecture = "arm64"
+proton-version = "experimental"
+proton-variant = "steam"
+default = true
+status = "playable"
+confidence = "community"
+notes = "Runs with the performance cores and standard FEX profile."
+
+[settings.cpu]
+preset = "big"
+
+[settings.fex]
+preset = "standard"
+
+[[reports]]
+runtime = "proton"
+proton-architecture = "arm64"
+proton-version = "experimental"
+proton-variant = "steam"
+tested_at = 2026-09-14
+distro = "Armada"
+device = "AYN Thor"
+runtime_name = "proton-experimental-arm64"
+notes = "Recovered from the active game profile on a played installation; no game-specific caveat was recorded."
